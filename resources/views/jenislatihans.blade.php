@@ -1,0 +1,26 @@
+@extends('layouts.main')
+
+@section('container')
+    <h1 class="mb-5">jenislatihan</h1>
+
+
+    <div class="container">
+        <div class="row">
+        @foreach ($jenislatihans as $jenislatihan)  
+        <div class="col-md-4 mt-3">
+            <a href="/latihans?jenislatihan={{ $jenislatihan->slug }}">
+            <div class="card bg-dark text-white">
+                <img src="https://source.unsplash.com/500x400/?{{ $jenislatihan->name }}" 
+                class="card-img" alt="...">
+                <div class="card-img-overlay d-flex align-items-center p-0">
+                    <h6 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(0, 0, 0, 0.8)">{{ $jenislatihan->jenis }}</h6>
+                </div>
+            </div>
+            </a>
+        </div>
+        @endforeach
+        </div>
+    </div>
+
+
+@endsection
