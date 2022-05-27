@@ -19,6 +19,24 @@ class AuthController extends Controller
 
     public function login(Request $req)
     {
+        // $this->validate($req, [
+        //     "username" => "required",
+        //     "password" => "required" 
+        // ]);
+
+        // $user = User::where("username", $req->username)->first();
+
+        // if (!$user) {
+        //     return response()->json(['message' => 'Login failed!'], 401);
+        // }
+
+        // $token = bin2hex(random_bytes(40));
+
+        // $user->update([
+        //     'token' => $token
+        // ]);
+
+        // return response()->json($user);
         // Validate Inputs
         $rules = [
             'role' => 'required',
