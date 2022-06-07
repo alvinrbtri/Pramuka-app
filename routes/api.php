@@ -3,8 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\API\RegisterController;
+use App\Http\Controllers\API\MateriController;
 use App\Http\Controllers\API\LoginController;
+use App\Http\Controllers\API\LogoutController;
+use App\Http\Controllers\API\RegisterController;
 
 
 /*
@@ -30,3 +32,9 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get("/coba", function () {
     echo "i";
 });
+
+Route::post('/logout', [LogoutController::class, 'logout']);
+
+Route::get('/materi', [MateriController::class, 'index']);
+
+// Route::get('/materi', [MateriController::class, 'show']);
