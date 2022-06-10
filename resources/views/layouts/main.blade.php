@@ -14,6 +14,9 @@
 
     {{-- style --}}
     <link rel="stylesheet" href="/css/style.css">
+
+    {{-- Style CSS --}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome.min.css"/>
     
 
     <title>Pramuka | {{ $judul }} </title>

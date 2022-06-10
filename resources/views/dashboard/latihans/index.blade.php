@@ -11,9 +11,9 @@
 </div>
 @endif
 
-<div class="table-responsive col-lg-8">
+<div class="table-responsive col-lg-12">
   <a href="/dashboard/latihans/create" class="btn btn-primary mb-3">Latihan baru</a>
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-sm" >
       <thead>
         <tr>
           <th scope="col">No</th>

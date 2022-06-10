@@ -21,9 +21,11 @@
           <li class="nav-item">
             <a class="nav-link {{ ($active === "latihans") ? 'active' : '' }}" href="/latihans">Latihan</a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link {{ ($active === "jenislatihans") ? 'active' : '' }}" href="/jenislatihans">Jenis Latihan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ ($active === "infokegiatans") ? 'active' : '' }}" href="/infokegiatans">Info Kegiatan</a>
           </li>
         </ul>
   

@@ -42,14 +42,6 @@
             @endforeach
           </select>
         </div>
-        
-        <div class="mb-3">
-          <label for="soal" class="form-label">Deskripsi</label>
-          @error('deskripsi')
-          <p class="text-danger">{{ $message }}</p>
-          @enderror
-          <textarea name="deskripsi" id="deskripsi" cols="30" rows="10">{{ old('deskripsi') }}</textarea>
-        </div>
 
         <div class="mb-3">
           <label for="soal" class="form-label">soal</label>

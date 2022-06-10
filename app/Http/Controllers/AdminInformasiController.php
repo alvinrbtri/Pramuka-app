@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pedoman;
+use App\Models\InfoKegiatan;
 use Illuminate\Http\Request;
 
-class AdminPedomanController extends Controller
+class AdminInformasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class AdminPedomanController extends Controller
      */
     public function index()
     {
-        return view('dashboard.pedomans.index', [
-            'pedomans' => Pedoman::all()
+        return view('dashboard.infokegiatans.index', [
+            'infokegiatans' => InfoKegiatan::all()
         ]);
     }
 
@@ -26,7 +26,7 @@ class AdminPedomanController extends Controller
      */
     public function create()
     {
-        return view('dashboard.pedomans.create');
+        return view('dashboard.infokegiatans.create');
     }
 
     /**
@@ -41,43 +41,45 @@ class AdminPedomanController extends Controller
             'judul' => 'required|max:255',
             'slug' => 'required',
             'deskripsi' => 'required',
-            'detail' => 'required'
+            'informasi' => 'required'
         ]);
 
-        Pedoman::create($validatedData);
+        InfoKegiatan::create($validatedData);
 
-        return redirect('/dashboard/pedomans')->with('berhasil', 'Pedoman baru berhasil di tambahakan');
+        return redirect('/dashboard/infokegiatans')->with('berhasil', 'Pedoman baru berhasil di tambahkan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pedoman  $pedoman
+     * @param  \App\Models\InfoKegiatan  $infoKegiatan
      * @return \Illuminate\Http\Response
      */
-    public function show(Pedoman $pedoman)
+    public function show(InfoKegiatan $infoKegiatan)
     {
-        // return view('dashboard.pedomans.show', [
-        //     'pedoman' => $pedoman
-        // ]);
+        echo $infoKegiatan;
+        return false;
         $judul='';
-        return view('dashboard.pedomans.show', [
+        return view('dashboard.infokegiatans.show', [
             'judul'=> $judul,
-            'active' => 'pedoman',
-            'pedoman' => $pedoman
+            'active' => 'infokegiatan',
+            'infokegiatan' => $infoKegiatan
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pedoman  $pedoman
+     * @param  \App\Models\InfoKegiatan  $infoKegiatan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pedoman $pedoman)
+    public function edit($slug)
     {
-        return view('dashboard.pedomans.edit', [
-            'pedoman' => $pedoman
+        $info = InfoKegiatan::firstWhere('slug', $slug);
+        // echo $info->informasi;
+        // return false;
+        return view('dashboard.infokegiatans.edit', [
+            'infokegiatan' => $info
         ]);
     }
 
@@ -85,32 +87,32 @@ class AdminPedomanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pedoman  $pedoman
+     * @param  \App\Models\InfoKegiatan  $infoKegiatan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pedoman $pedoman)
+    public function update(Request $request, InfoKegiatan $infoKegiatan)
     {
         $validatedData = $request->validate([
             'judul' => 'required|max:255',
             'slug' => 'required',
             'deskripsi' => 'required',
-            'detail' => 'required'
+            'informasi' => 'required'
         ]);
 
-        Pedoman::where('id', $pedoman->id)
+        InfoKegiatan::where('id', $infoKegiatan->slug)
                 ->update($validatedData);
-        return redirect('/dashboard/pedomans')->with('berhasil', 'Data Pedoman berhasil di updated!');
+        return redirect('/dashboard/infokegiatans')->with('berhasil', 'Informasi berhasil di updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pedoman  $pedoman
+     * @param  \App\Models\InfoKegiatan  $infoKegiatan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pedoman $pedoman)
+    public function destroy(InfoKegiatan $infoKegiatan)
     {
-        Pedoman::destroy($pedoman->id);
+        InfoKegiatan::destroy($infoKegiatan->id);
 
         return redirect('/dashboard/pedomans')->with('berhasil', 'Data pedoman berhasil di hapus ');
     }

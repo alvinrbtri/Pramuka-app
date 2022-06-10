@@ -6,7 +6,7 @@
 </div>  
 
 <div class="col-lg-8">
-    <form method="post" action="/dashboard/jenislatihans">
+    <form method="post" action="{{ route ('jenislatihans.store')}}">
         @csrf
         <div class="mb-3">
             <label for="jenis" class="form-label">Jenis Latihan</label>

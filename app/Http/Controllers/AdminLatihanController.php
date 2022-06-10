@@ -48,7 +48,6 @@ class AdminLatihanController extends Controller
             'slug' => 'required',
             'jenislatihan_id' => 'required',
             'image' => 'image|file|max:1024',
-            'deskripsi' => 'required',
             'soal' => 'required'
         ]);
 
@@ -57,7 +56,7 @@ class AdminLatihanController extends Controller
         }
 
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['deskripsi'] = Str::limit(strip_tags($request->body), 250);
+        $validatedData['soal'] = Str::limit(strip_tags($request->soal), 250);
 
         Latihan::create($validatedData);
 
@@ -72,6 +71,8 @@ class AdminLatihanController extends Controller
      */
     public function show(Latihan $latihan)
     {
+        // echo $latihan;
+        // return false;
         return view('dashboard.latihans.show', [
             'judul' => 'latihan',
             'active' => 'latihan',
@@ -104,6 +105,7 @@ class AdminLatihanController extends Controller
     {
         $rules = [
             'judul' => 'required|max:255',
+            'slug' => 'required',
             'jenislatihan_id' => 'required',
             'image' => 'image|file|max:1024',
             'soal' => 'required'
@@ -123,7 +125,7 @@ class AdminLatihanController extends Controller
         }
 
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['deskripsi'] = Str::limit(strip_tags($request->body), 250);
+        $validatedData['soal'] = Str::limit(strip_tags($request->body), 250);
 
         Latihan::where('id', $latihan->id)
                 ->update($validatedData);

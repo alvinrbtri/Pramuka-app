@@ -61,8 +61,9 @@ class AuthController extends Controller
             'username' => 'required',
             'nis' => 'required',
             'name' => 'required',
+            'jeniskelamin'=> 'required',
             'email' => 'required',
-            'kelas' => 'required',
+            'pangkalan' => 'required',
             'password' => 'required',
             'image' => 'required|mimes:png,jpeg,jpg'
         ];
@@ -98,8 +99,9 @@ class AuthController extends Controller
             'username' => 'required',
             'nis' => 'required',
             'name' => 'required',
+            'jeniskelamin' => 'required',
             'email' => 'required',
-            'kelas' => 'required',
+            'pangkalan' => 'required',
             'password' => 'required',
             'image' => 'required|mimes:png,jpeg,jpg'
         ];

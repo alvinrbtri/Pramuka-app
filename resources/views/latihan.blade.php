@@ -10,7 +10,7 @@
 
                 @if ($latihan->image)
                 <div style="max-height: 350px; overflow:hidden">
-                    <img src="{{ asset('storage/' . $latihan->image) }}" alt="{{ 
+                    <img src="{!! asset('storage/' . $latihan->image) !!}" alt="{{ 
                         $latihan->jenislatihan->name }}" class="img-fluid">
                 </div>
                 @else
@@ -19,10 +19,11 @@
                 @endif
 
                 <article class="my-3">
-                    {!! $latihan->deskripsi !!}
+                    {!! $latihan->soal !!}
                 </article>
         
-                <a href="/latihans" class="d-block mt-3">Kembali ke halaman sebelumnya</a>
+                <a href="/latihans" class="d-block mt-3 text-decoration-none text-light d-inline-flex p-2 rounded" 
+                type="button" style="background-color: brown" >Kembali ke halaman sebelumnya</a>
                 
             </div>
         </div>

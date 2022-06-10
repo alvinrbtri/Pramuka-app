@@ -6,9 +6,8 @@
 </div> 
 
 <div class="col-lg-8">
-    <form method="POST" action="/dashboard/tambah_siswas/store" class="mb-5" enctype="multipart/form-data">
+    <form method="post" action="/dashboard/tambah_siswas/store" class="mb-5" enctype="multipart/form-data">
         @csrf
-
         <input type="hidden" name="role" value="0">
         <div class="mb-3">
           <label for="nis" class="form-label">NIS</label>
@@ -43,6 +42,13 @@
           @enderror
         </div>
 
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="role">
+        
+          <option >Perempuan</option>
+          <option >Laki-laki</option>
+  
+        </select>
+
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
           <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" 
@@ -55,10 +61,10 @@
         </div>
 
         <div class="mb-3">
-          <label for="kelas" class="form-label">Kelas</label>
-          <input type="text" class="form-control @error('kelas') is-invalid @enderror" id="kelas" 
-          name="kelas" required value="{{ old('kelas') }}">
-          @error('kelas')
+          <label for="pangkalan" class="form-label">Pangkalan</label>
+          <input type="text" class="form-control @error('pangkalan') is-invalid @enderror" id="pangkalan" 
+          name="pangkalan" required value="{{ old('pangkalan') }}">
+          @error('pangkalan')
           <div class="invalid-feedback">
             {{ $message }}
           </div>
@@ -88,7 +94,7 @@
           @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">Update Tambah Siswa</button>
+        <button type="submit" class="btn btn-primary">Upload Tambah Siswa</button>
       </form>
 </div>
 

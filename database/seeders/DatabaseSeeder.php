@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\InfoKegiatan;
 use App\Models\User;
 use App\Models\Materi;
 use App\Models\Latihan;
@@ -80,6 +81,13 @@ class DatabaseSeeder extends Seeder
             'slug' => 'sku-penegak',
             'deskripsi' => ' SKU ini berisi tentang panduan-panduan untuk menjadi pramuka Penegak',
             'detail' => 'Diisi dengan pembina sekolah'
+        ]);
+
+        InfoKegiatan::create([
+            'judul' => 'Kegiatan hari jumat di SMA 1 Indramayu',
+            'slug' => 'kegiatan-smansayu',
+            'deskripsi' => 'kegiatan ini memperingati hari lahirnya boden powell',
+            'informasi' => 'mengadakan perlombaan blalalalala'
         ]);
 
        

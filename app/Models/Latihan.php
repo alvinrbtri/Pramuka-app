@@ -19,7 +19,7 @@ class Latihan extends Model
     {
         $query->when($filters['cari'] ?? false, function($query, $cari) {
             return $query->where('judul', 'like', '%' . $cari . '%')
-                        ->orWhere('deskripsi', 'like', '%' . $cari . '%');
+                        ->orWhere('soal', 'like', '%' . $cari . '%');
         });
 
         $query->when($filters['jenislatihan'] ?? false, function($query, $jenislatihan) {

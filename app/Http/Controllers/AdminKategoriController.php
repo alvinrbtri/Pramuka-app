@@ -60,9 +60,12 @@ class AdminKategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kategori $kategori)
+    public function edit($slug)
     {
-        //
+        $var = Kategori::firstWhere('slug',$slug);
+        return view('dashboard.kategoris.edit', [
+            'kategori' => $var
+        ]);
     }
 
     /**
@@ -74,7 +77,20 @@ class AdminKategoriController extends Controller
      */
     public function update(Request $request, Kategori $kategori)
     {
-        //
+        $rules = [
+            'name' => 'required|max:255',
+            'slug' => 'required'
+        ];
+
+        if($request->slug != $kategori->slug) {
+            $rules['slug'] = 'required';
+        }
+
+        $validatedData = $request->validate($rules);
+        
+        Kategori::where('id', $request->valId)->update($validatedData);
+
+        return redirect('/dashboard/kategoris')->with('berhasil', 'Jenis Latihan baru sudah diedit!');
     }
 
     /**

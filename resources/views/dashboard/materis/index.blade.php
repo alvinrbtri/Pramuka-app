@@ -11,9 +11,9 @@
 </div>
 @endif
 
-<div class="table-responsive col-lg-8">
+<div class="table-responsive col-lg-12 ">
   <a href="/dashboard/materis/create" class="btn btn-primary mb-3">Materi baru</a>
-    <table class="table table-striped table-sm">
+    <table class="table table-stripped table-sm">
       <thead>
         <tr>
           <th scope="col">No</th>

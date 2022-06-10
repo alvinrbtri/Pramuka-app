@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('role')->default('3');
             $table->string('name');
             $table->string('username')->unique()->nullable();
+            $table->string('jeniskelamin')->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('nis')->nullable();
-            $table->string('kelas')->nullable();
+            $table->string('pangkalan')->nullable();
             $table->string('password');
             $table->string('image')->nullable();
             $table->rememberToken();

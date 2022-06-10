@@ -20,6 +20,26 @@
       trix-toolbar [data-trix-button-group="file-tools"] {
         display: none;
       }
+      .table-responsive td{
+        text-align: center
+      }
+      .table-responsive th{
+        text-align: center
+      }
+        .nav-item .nav-item a{
+        color: white
+      }
+      .nav-item a:hover {
+      background-color: white;
+      border-radius: 4px 6px 4px gray;
+}
+.col .card{
+  border-radius: 10px;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  box-shadow: 20px 20px 45px grey;
+  text-align: center
+}
     </style>
   </head>
   <body>
@@ -88,6 +108,16 @@ CKEDITOR.replace( 'deskripsi', options );
     filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
   };
 CKEDITOR.replace( 'soal', options );
+</script>
+
+<script>
+  var options = {
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+  };
+CKEDITOR.replace( 'informasi', options );
 </script>
   </body>
 </html>

@@ -109,7 +109,6 @@ class DashboardMateriController extends Controller
             'kategori_id' => 'required',
             'image' => 'image|file|max:1024|mimes:png,jpeg,jpg',
             'file' => 'file|mimes:docx,pdf,xlsx,zip|max:5000',
-
             'body' => 'required'
         ];
 
@@ -136,8 +135,7 @@ class DashboardMateriController extends Controller
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 250);
 
-        Materi::where('id', $materi->id)
-                ->update($validatedData);
+        Materi::where('id', $materi->id)->update($validatedData);
 
         return redirect('/dashboard/materis')->with('berhasil', 'Materi berhasil di updated!');
     }

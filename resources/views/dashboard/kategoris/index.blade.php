@@ -11,7 +11,7 @@
 </div>
 @endif
 
-<div class="table-responsive col-lg-8">
+<div class="table-responsive col-lg-12">
   <a href="/dashboard/kategoris/create" class="btn btn-primary mb-3">Fitur baru</a>
     <table class="table table-striped table-sm">
       <thead>
@@ -28,8 +28,6 @@
              <td>{{$kategori->name }}</td>
 
              <td>
-              <a href="/dashboard/kategoris/{{$kategori->slug }}" class="badge 
-                btn-info"><span data-feather="eye"></span></a>
 
               <a href="/dashboard/kategoris/{{$kategori->slug }}/edit" class="badge btn-warning"><span data-feather="edit"></span></a>
 

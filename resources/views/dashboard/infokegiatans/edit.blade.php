@@ -2,23 +2,17 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Latihan baru</h1>
+    <h1 class="h2">Edit Informasi</h1>
 </div> 
 
-@if (session()->has('berhasil'))
-<div class="alert alert-success" role="alert">
-  {{ session('berhasil') }}
-</div>
-@endif
-
 <div class="col-lg-8">
-    <form method="post" action="/dashboard/latihans/{{ $latihan->slug }}" class="mb-5" enctype="multipart/form-data">
-      @method('put')
+    <form method="post" action="{{ route('infokegiatans.update',$infokegiatan->id) }}" class="mb-5">
+        @method('put')
         @csrf
         <div class="mb-3">
-          <label for="judul" class="form-label">Judul Latihan</label>
+          <label for="judul" class="form-label">Informasi</label>
           <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" 
-          name="judul" required value="{{ old('judul', $latihan->judul) }}">
+          name="judul" required autofocus value="{{ old('judul', $infokegiatan->judul) }}">
           @error('judul')
           <div class="invalid-feedback">
             {{ $message }}
@@ -27,9 +21,9 @@
         </div>
 
         <div class="mb-3">
-          <label for="slug" class="form-label">Slug Latihan</label>
+          <label for="slug" class="form-label">Slug Informasi</label>
           <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" 
-          name="slug" required value="{{ old('slug', $latihan->slug) }}">
+          name="slug" required value="{{ old('slug', $infokegiatan->slug) }}">
           @error('slug')
           <div class="invalid-feedback">
             {{ $message }}
@@ -38,27 +32,22 @@
         </div>
 
         <div class="mb-3">
-          <label for="jenislatihan" class="form-label">Jenis Latihan</label>
-          <select class="form-select" name="jenislatihan_id">
-            @foreach ($jenislatihans as $jenislatihan)
-            @if (old('jenislatihan_id'   ) == $jenislatihan->id)
-             <option value="{{ $jenislatihan->id }}" selected>{{ $jenislatihan->jenis }}</option>
-            @else
-             <option value="{{ $jenislatihan->id }}">{{ $jenislatihan->jenis }}</option>
-            @endif
-            @endforeach
-          </select>
-        </div>
-        
-        <div class="mb-3">
-          <label for="soal" class="form-label">soal</label>
-          @error('soal')
+          <label for="deskripsi" class="form-label">deskripsi</label>
+          @error('deskripsi')
           <p class="text-danger">{{ $message }}</p>
           @enderror
-          <textarea name="soal" id="soal" cols="30" rows="10">{{ old('soal', $latihan->soal) }}</textarea>
+          <textarea name="deskripsi" id="deskripsi" cols="30" rows="10">{{ old('deskripsi', $infokegiatan->deskripsi) }}</textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Update Latihan</button>
+        <div class="mb-3">
+          <label for="informasi" class="form-label">Informasi</label>
+          @error('informasi')
+          <p class="text-danger">{{ $message }}</p>
+          @enderror
+          <textarea name="informasi" id="informasi" cols="30" rows="10">{{ old('informasi', $infokegiatan->informasi) }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Pedoman</button>
       </form>
 </div>
 
@@ -67,14 +56,10 @@
   const slug = document.queryselector('#slug');
 
   judul.addEventListener('change', function() {
-    fetch('/dashboard/latihans/checkSlug?judul=' + judul.value)
+    fetch('/dashboard/pedomans/checkSlug?judul=' + judul.value)
     .then(response => response.json())
     .then(data => slug.value = data.slug)
   });
-
-  document.addEventListener('trix-file-accept', function(e) {
-    e.preventDefault();
-  })
 
   function previewImage() {
     const image = document.queryselector('#image');

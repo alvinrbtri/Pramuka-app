@@ -14,7 +14,8 @@
       @endif
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Cari..." name="cari" value="{{ request('cari') }}">
-        <button class="btn btn-primary" type="submit" >Cari</button>
+        <button class="text-light rounded border border-light" 
+         style="background-color: brown" type="submit" >Cari</button>
       </div>
     </form>
   </div>
@@ -34,7 +35,10 @@
   @endif
 
     <div class="card-body text-center">
-      <a class="btn btn-primary" href="{{ asset('storage/'.$materis[0]->file) }}">Download File</a>
+      <a class="btn btn-primary" href="{{ asset('storage/'.$materis[0]->file) }}">
+        <span data-feather="user"></span> 
+        Download File
+      </a>
     </div>
     
 

@@ -38,12 +38,11 @@ class AdminJenisLatihanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
+            'jenis' => 'required|max:255',
             'slug' => 'required'
         ]);
 
         JenisLatihan::create($validatedData);
-
         return redirect('/dashboard/jenislatihans')->with('berhasil', 'Fitur baru telah ditambahkan!');
     }
 
@@ -60,9 +59,12 @@ class AdminJenisLatihanController extends Controller
      * @param  \App\Models\JenisLatihan  $jenisLatihan
      * @return \Illuminate\Http\Response
      */
-    public function edit(JenisLatihan $jenisLatihan)
+    public function edit($slug)
     {
-        //
+        $var = JenisLatihan::firstWhere('slug',$slug);
+        return view('dashboard.jenislatihans.edit', [
+            'jenislatihans' => $var
+        ]);
     }
 
     /**
@@ -74,7 +76,20 @@ class AdminJenisLatihanController extends Controller
      */
     public function update(Request $request, JenisLatihan $jenisLatihan)
     {
-        //
+        $rules = [
+            'jenis' => 'required|max:255',
+            'slug' => 'required'
+        ];
+
+        if($request->slug != $jenisLatihan->slug) {
+            $rules['slug'] = 'required';
+        }
+
+        $validatedData = $request->validate($rules);
+        
+        JenisLatihan::where('id', $request->valId)->update($validatedData);
+
+        return redirect('/dashboard/jenislatihans')->with('berhasil', 'Jenis Latihan baru sudah diedit!');
     }
 
     /**
@@ -85,7 +100,7 @@ class AdminJenisLatihanController extends Controller
      */
     public function destroy(JenisLatihan $jenisLatihan)
     {
-        JenisLatihan::destroy($jenisLatihan->id);
+        jenisLatihan::destroy($jenisLatihan->slug);
         return redirect('/dashboard/jenislatihans')->with('berhasil', 'Fitur telah dihapus!');
     }
 }

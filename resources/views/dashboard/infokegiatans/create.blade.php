@@ -2,14 +2,14 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Pedoman baru</h1>
+    <h1 class="h2">Informasi baru</h1>
 </div> 
 
 <div class="col-lg-12">
-    <form method="post" action="/dashboard/pedomans" class="mb-5" enctype="multipart/form-data">
+    <form method="post" action="/dashboard/infokegiatans" class="mb-5" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-          <label for="judul" class="form-label">Judul Pedoman</label>
+          <label for="judul" class="form-label">Informasi</label>
           <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" 
           name="judul" required autofocus value="{{ old('judul') }}">
           @error('judul')
@@ -39,11 +39,11 @@
         </div>
 
         <div class="mb-3">
-          <label for="detail" class="form-label">detail</label>
-          @error('detail')
+          <label for="informasi" class="form-label">informasi</label>
+          @error('informasi')
           <p class="text-danger">{{ $message }}</p>
           @enderror
-          <textarea name="detail" id="detail" cols="30" rows="10">{{ old('detail') }}</textarea>
+          <textarea name="informasi" id="informasi" cols="30" rows="10">{{ old('informasi') }}</textarea>
         </div>
 
         {{-- <div class="mb-3"></div>
@@ -60,7 +60,7 @@
             @enderror
           </div> --}}
 
-        <button type="submit" class="btn btn-primary">Upload Pedoman</button>
+        <button type="submit" class="btn btn-primary">Upload Informasi</button>
       </form>
 </div>
 

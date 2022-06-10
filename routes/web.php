@@ -8,13 +8,16 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\PedomanController;
+use App\Http\Controllers\InfoKegiatanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminPedomanController;
 use App\Http\Controllers\AdminLatihanController;
 use App\Http\Controllers\AdminKategoriController;
+use App\Http\Controllers\AdminInformasiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardMateriController;
+use App\Models\InfoKegiatan;
 use App\Models\JenisLatihan;
 
 /*
@@ -43,6 +46,9 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/pedomans', [PedomanController::class, 'index']);
 Route::get('/pedomans/{pedoman:slug}', [PedomanController::class, 'show']);
+
+Route::get('/infokegiatans', [InfoKegiatanController::class, 'index']);
+Route::get('/infokegiatans/{infokegiatan:slug}', [InfoKegiatanController::class, 'show']);
 
 Route::get('/materis', [MateriController::class, 'index']);
 Route::get('/materis/{materi:slug}', [MateriController::class, 'show']);
@@ -77,21 +83,23 @@ Route::get('/dashboard/materis/checkSlug', [DashboardMateriController::class, 'c
 Route::resource('/dashboard/materis', DashboardMateriController::class)->middleware('auth');
 Route::resource('/dashboard/kategoris', AdminKategoriController::class);
 
+
 Route::get('/dashboard/latihans/checkSlug', [AdminLatihanController::class, 'checkSlug'])
 ->middleware('auth');
 Route::resource('/dashboard/latihans', AdminLatihanController::class)->middleware('auth');
 Route::resource('/dashboard/jenislatihans', AdminJenisLatihanController::class);
 
 Route::resource('/dashboard/pedomans', AdminPedomanController::class);
+Route::resource('/dashboard/infokegiatans', AdminInformasiController::class);
 
 Route::get('/dashboard/tambah_siswas', [AuthController::class, 'utama'])->middleware('auth');
 Route::post('/dashboard/tambah_siswas/store', [AuthController::class, 'store'])->middleware('auth');
 Route::get('/dashboard/tambah_siswas/create', [AuthController::class, 'create'])->middleware('auth');
-Route::get('/dashboard/tambah_siswas/show/{user:nis}',[AuthController::class,'show'])->middleware('auth');
+// Route::get('/dashboard/tambah_siswas/show/{user:nis}',[AuthController::class,'show'])->middleware('auth');
 Route::get('/dashboard/tambah_siswas/edit/{user:nis}',[AuthController::class,'edit'])->middleware('auth');
 Route::put('/dashboard/tambah_siswas/update/{user:nis}',[AuthController::class,'update'])->middleware('auth');
 Route::delete('/dashboard/tambah_siswas/delete/{user:nis}',[AuthController::class,'destroy'])->middleware('auth');
-
+Route::get('/dashboard/tambah_siswas/show',[AuthController::class,'show'])->middleware('auth');
 
 
 // CK EDITOR lARAVEL fILE MANAGER
