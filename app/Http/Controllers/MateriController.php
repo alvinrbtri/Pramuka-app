@@ -9,7 +9,6 @@ class MateriController extends Controller
 {
     public function index()
     {
-     
         return view('materis',[
             "judul" => "All Materis",
             "active" => 'materis',

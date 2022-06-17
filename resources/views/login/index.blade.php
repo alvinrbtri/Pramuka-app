@@ -23,7 +23,7 @@
             <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
             <form action="/masuk" method="post">
               @csrf
-              <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+              <img class="mb-4 mx-auto d-block" src="img/pao2.png" alt="" width="200" height="150">
           
               <div class="form-floating">
                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" 
@@ -41,9 +41,12 @@
                 <label for="password">Password</label>
               </div>
  
-              <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+              {{-- <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button> --}}
+              <button class="w-100 btn btn-lg btn-primary text-decoration-none text-light  p-2 rounded" 
+                type="submit" style="background-color: brown" > Masuk
+              </button>
             </form>
-            <small class="d-block text-center mt-3"> Belum Registrasi? <a href="/register"> 
+            <small class="d-block text-center mt-3 " > Belum Registrasi? <a href="/register" style="text-decoration: none;"> 
                 Registrasi sekarang!!</a></small>
         </main>
     </div>

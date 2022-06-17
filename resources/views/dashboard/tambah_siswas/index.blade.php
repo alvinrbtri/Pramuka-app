@@ -12,6 +12,7 @@
 @endif
 
 <div class="table-responsive col-lg-8">
+
   <a href="/dashboard/tambah_siswas/create" class="btn btn-primary mb-3">Tambah Siswa</a>
     <table class="table table-striped table-sm">
       <thead>
@@ -25,10 +26,19 @@
         </tr>
       </thead>
       <tbody>
+        
           @foreach ($users as $user)
            <tr>
              <td>{{ $loop->iteration }}</td>
-             <td>{{ $user->role }}</td>
+             <td>
+              @if ( $user->role == 0)
+              user
+              @elseif ($user->role == 1)
+              superadmin
+              @elseif ($user->role == 2)
+              admin
+              @endif 
+             </td>
              <td>{{ $user->nis }}</td>
              <td>{{ $user->name }}</td>
              <td>{{ $user->username }}</td>

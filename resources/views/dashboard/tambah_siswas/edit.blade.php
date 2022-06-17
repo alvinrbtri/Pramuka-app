@@ -23,7 +23,7 @@
           <option value="1">Super Admin</option>
           <option value="2">Admin</option>
         </select>
-        <div class="mb-5">
+        <div class="mb-3">
           <label for="nis" class="form-label">NIS</label>
           <input type="number" class="form-control @error('nis') is-invalid @enderror" id="nis" 
           name="nis" required autofocus value="{{ old('nis', $user->nis) }}">
@@ -56,6 +56,14 @@
           @enderror
         </div>
 
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="jeniskelamin"
+        id="jeniskelamin" value="{{ old('jeniskelamin', $user->jeniskelamin) }}">
+        
+          <option value="perempuan" >Perempuan</option>
+          <option value="laki-laki" >Laki-laki</option>
+  
+        </select>
+
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
           <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" 
@@ -68,33 +76,18 @@
         </div>
 
         <div class="mb-3">
-          <label for="kelas" class="form-label">Kelas</label>
-          <input type="text" class="form-control @error('kelas') is-invalid @enderror" id="kelas" 
-          name="kelas" required value="{{ old('kelas', $user->kelas) }}">
-          @error('kelas')
+          <label for="pangkalan" class="form-label">Pangkalan</label>
+          <input type="text" class="form-control @error('pangkalan') is-invalid @enderror" id="pangkalan" 
+          name="pangkalan" required value="{{ old('pangkalan', $user->pangkalan) }}">
+          <input type="hidden" name="id_user" value="{{ $user->id }}">
+          @error('pangkalan')
           <div class="invalid-feedback">
             {{ $message }}
           </div>
           @enderror
         </div>
-        
         <div class="mb-3">
-          @if (Session::has('salah'))
-          <div class="invalid-feedback alert">
-            {{ session('salah') }}
-          </div>
-          @endif
-          <label for="password_lama" class="form-label">Password lama</label>
-          <input type="password" class="form-control @error('password_lama') is-invalid @enderror" id="password_lama" 
-          name="password_lama" required>
-          {{-- @error('password_lama')
-          <div class="invalid-feedback">
-            {{ $message }}
-          </div>
-          @enderror --}}
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
+          <label for="password" class="form-label">Password Baru</label>
           <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" 
           name="password" required value="123">
           @error('password')

@@ -35,7 +35,7 @@
   
                 <a href="{{ route('infokegiatans.edit',$info->slug) }}" class="badge btn-warning"><span data-feather="edit"></span></a>
   
-                <form action="/dashboard/infokegiatans/{{ $info->slug }}" method="post" class="d-inline">
+                <form action="/dashboard/infokegiatans/{{ $info->id }}" method="post" class="d-inline">
                   @method('delete')
                   @csrf
                   <button class="badge bg-danger border-0" onclick="return confirm('Data ini akan dihapus?')">

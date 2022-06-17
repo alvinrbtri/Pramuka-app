@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('judul');
             $table->string('slug');
             $table->mediumText('deskripsi');
-            $table->string('detail');
+            $table->longText('detail');
             $table->string('image')->nullable();
             $table->timestamps();
         });

@@ -42,6 +42,8 @@
                 </div>
                 @enderror
               </div>
+
+              <input type="hidden" name="nis" value="{{ true }}">
               
               <div class="form-floating">
                 <input type="password" name="password" class="form-control rounded-bottom @error ('password')is-invalid @enderror" 

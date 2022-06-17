@@ -23,9 +23,9 @@
 
 @if ($materis->count())
     
-<div class="card mb-3">;pls
+<div class="card mb-3">
   @if ($materis[0]->image)
-            <div style="max-height: 400px; overflow:hidden">
+            <div style="width:400px; height: 300px; overflow:hidden" class="mx-auto d-block">
                 <img src="{{ asset('storage/' . $materis[0]->image) }}" alt="{{ 
                     $materis[0]->kategori->name }}" class="img-fluid">
             </div>
@@ -35,9 +35,13 @@
   @endif
 
     <div class="card-body text-center">
-      <a class="btn btn-primary" href="{{ asset('storage/'.$materis[0]->file) }}">
+      {{-- <a class="btn btn-primary" href="{{ asset('storage/'.$materis[0]->file) }}">
         <span data-feather="user"></span> 
         Download File
+      </a> --}}
+      <a href="{{ asset('storage/'.$materis[0]->file) }}" 
+        class="d-block mt-3 text-decoration-none text-light d-inline-flex p-2 rounded" 
+        type="button" style="background-color: brown" ><i class="fas fa-user"></i>Download File
       </a>
     </div>
     
@@ -56,8 +60,11 @@
 
         <p class="card-text">{{ $materis[0]->excerpt }}</p>
 
-        <a href="/materis/{{ $materis[0]->slug }}" class="text-decoration-none btn btn-primary">Selanjutnya...</a>
-      
+        {{-- <a href="/materis/{{ $materis[0]->slug }}" class="text-decoration-none btn btn-primary">Selanjutnya...</a> --}}
+        <a href="/materis/{{ $materis[0]->slug }}" 
+          class="d-block mt-3 text-decoration-none text-light d-inline-flex p-2 rounded" 
+          type="button" style="background-color: brown" >Klik untuk selanjutnya
+        </a>
     </div>
 </div>
 

@@ -55,15 +55,15 @@ class AdminInformasiController extends Controller
      * @param  \App\Models\InfoKegiatan  $infoKegiatan
      * @return \Illuminate\Http\Response
      */
-    public function show(InfoKegiatan $infoKegiatan)
+    public function show( $slug)
     {
-        echo $infoKegiatan;
-        return false;
+       $var= InfoKegiatan::firstWhere('slug',$slug);
+       
         $judul='';
         return view('dashboard.infokegiatans.show', [
             'judul'=> $judul,
             'active' => 'infokegiatan',
-            'infokegiatan' => $infoKegiatan
+            'infokegiatan' => $var
         ]);
     }
 
@@ -110,10 +110,11 @@ class AdminInformasiController extends Controller
      * @param  \App\Models\InfoKegiatan  $infoKegiatan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InfoKegiatan $infoKegiatan)
+    public function destroy($id)
+   
     {
-        InfoKegiatan::destroy($infoKegiatan->id);
+        InfoKegiatan::destroy($id);
 
-        return redirect('/dashboard/pedomans')->with('berhasil', 'Data pedoman berhasil di hapus ');
+        return redirect('/dashboard/infokegiatans')->with('berhasil', 'Informasi Kegiatan berhasil di hapus ');
     }
 }

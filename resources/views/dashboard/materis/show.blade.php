@@ -26,6 +26,16 @@
                 <img src="https://source.unsplash.com/1200x400/?{{ 
                 $materi->kategori->name }}" alt="{{ $materi->kategori->name }}" class="img-fluid mt-3">
             @endif
+
+            @if ($materi->file)
+            <div style="max-height: 350px; overflow:hidden">
+                <img src="{{ asset('storage/' . $materi->file) }}" alt="{{ 
+                    $materi->kategori->name }}" class="img-fluid mt-3">
+            </div>
+            @else
+                <img src="https://source.unsplash.com/1200x400/?{{ 
+                $materi->kategori->name }}" alt="{{ $materi->kategori->name }}" class="img-fluid mt-3">
+            @endif
                 
 
             <article class="my-3">

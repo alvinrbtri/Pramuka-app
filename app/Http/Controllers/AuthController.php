@@ -75,7 +75,10 @@ class AuthController extends Controller
         return redirect('/dashboard/tambah_siswas');
     }
 
-    public function show(User $user){
+    public function show($nis){
+        // echo $nis;
+        // return false;
+        $user= User::firstWhere('nis', $nis);
         return view('dashboard.tambah_siswas.show', [
             'user'=> $user
         ]);
@@ -85,7 +88,7 @@ class AuthController extends Controller
     {
         return view('dashboard.tambah_siswas.edit', [
             'user' => $user,
-            'roles' => User::all()
+            'role' => User::all()
         ]);
     }
 
@@ -103,7 +106,7 @@ class AuthController extends Controller
             'email' => 'required',
             'pangkalan' => 'required',
             'password' => 'required',
-            'image' => 'required|mimes:png,jpeg,jpg'
+            'image' => 'mimes:png,jpeg,jpg'
         ];
         $validatedData = $request->validate($rules,$messages);
         if($request->file('image')) {
@@ -112,15 +115,12 @@ class AuthController extends Controller
             }
             $validatedData['image'] = $request->file('image')->store('user-image');
         }
-        if (Hash::check($request->password_lama,$user->password)) {
+        if (Hash::check($request->password, $user->password)) {
             $validatedData['password'] = Hash::make( $validatedData['password']);
-    
-            User::where('id', $user->id)
-                    ->update($validatedData);
-    
-            return redirect('/dashboard/tambah_siswas')->with('berhasil', 'Materi berhasil di updated!');
         }
-        return redirect()->back()->with('salah','password lama tidak sesuai');
+        User::find($request->id_user)
+        ->update($validatedData);
+        return redirect('/dashboard/tambah_siswas')->with('berhasil', 'Materi berhasil di updated!');
     }
 
     public function destroy(User $user)

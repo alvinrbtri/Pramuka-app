@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Data Siswa baru</h1>
+    <h1 class="h2">Data Siswa</h1>
 </div> 
 
 <div class="col-lg-8">
@@ -42,7 +42,8 @@
           @enderror
         </div>
 
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="role">
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="jeniskelamin"
+        id="jeniskelamin">
         
           <option >Perempuan</option>
           <option >Laki-laki</option>

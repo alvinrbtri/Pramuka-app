@@ -98,9 +98,9 @@ class AdminJenisLatihanController extends Controller
      * @param  \App\Models\JenisLatihan  $jenisLatihan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JenisLatihan $jenisLatihan)
+    public function destroy($id)
     {
-        jenisLatihan::destroy($jenisLatihan->slug);
+        jenisLatihan::destroy($id);
         return redirect('/dashboard/jenislatihans')->with('berhasil', 'Fitur telah dihapus!');
     }
 }

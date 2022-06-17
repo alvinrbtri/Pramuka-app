@@ -7,47 +7,59 @@
             color: black;
         }
     </style>
-    <div class="container-fluid carousel-contain py-5">
         <div class="container">
-            <h1 class="text-center mb-5">Coconut penggalang</h1>
-            <div id="carouselExampleIndicators" class="carousel slide col-lg-8 offset-lg-2" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="img/slide1.png" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Materi pramuka 1</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="img/slide2.png" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Materi pramuka 2</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="img/slide1.png" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Materi pramuka 3</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                      </div>
+          <br>
+          <br>
+          <img src="img/i.png" width="350" height="400" class="rounded float-end" alt="..."> 
+
+          <h3>PRAMUKA <span style="color:brown;">PENGGALANG</span></h3>
+          <p class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Aliquid omnis dicta facilis,
+           nostrum minus fuga veritatis? Dolores, <br> pariatur deserunt accusamus iusto, <br>  ullam qui facere, nobis quo natus perspiciatis quis officiis.</p>
+           <button class="btn btn-dark">Mari Menjelajah</button>
+           <br>
+           <br>
+           <br>
+           <br>
+           <img src="img/slide1.png" width="350" height="200" class="rounded float-start" alt="..."> 
+           <h3 style="text-align: center">PRAMUKA <span style="color:brown;">PENGGALANG</span></h3>
+           <p style="text-align: center">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Aliquid omnis dicta facilis,
+            nostrum minus fuga veritatis? Dolores, <br> pariatur deserunt accusamus iusto, <br>  ullam qui facere, nobis quo natus perspiciatis quis officiis.</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3 class="text-center">Fitur Utama</h3>
+            <br>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col">
+                <div class="card" style="border-radius: 10px;box-shadow: -4px 10px 50px rgb(141, 141, 255); background-color:antiquewhite;">
+                  <div class="card-body">
+                    <h5 class="card-title">Praktis</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
               </div>
+              <div class="col">
+                <div class="card" style="border-radius: 10px;box-shadow: -4px 10px 50px rgb(141, 141, 255); background-color:antiquewhite;">
+                  <div class="card-body">
+                    <h5 class="card-title">Praktis</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card" style="border-radius: 10px;box-shadow: -4px 10px 50px rgb(141, 141, 255); background-color:antiquewhite;">
+                  <div class="card-body">
+                    <h5 class="card-title">Praktis</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <br>
+        <br>
+            </div>
         </div>
     </div>
 @endsection

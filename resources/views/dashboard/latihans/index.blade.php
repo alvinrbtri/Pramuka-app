@@ -19,7 +19,7 @@
           <th scope="col">No</th>
           <th scope="col">Judul</th>
           <th scope="col">Latihan</th>
-          <th scope="col">Jawaban</th>
+          {{-- <th scope="col">Jawaban</th> --}}
           <th scope="col">Aksi</th>
         </tr>
       </thead>

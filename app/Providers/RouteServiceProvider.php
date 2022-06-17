@@ -7,6 +7,8 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Gate;
+use App\Models\User;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -36,6 +38,10 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+        });
+
+        Gate::define('admin', function (User $user) {
+            return $user->role == 1;
         });
     }
 

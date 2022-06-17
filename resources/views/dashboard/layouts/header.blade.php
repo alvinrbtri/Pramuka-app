@@ -1,6 +1,6 @@
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"> 
-      <img class="rounded" src="../../../../img/man.png" alt="" width="35" height="30"> {{ auth()->user()->name }}</a>
+      <img class="rounded-circle" src="../img/man.png" alt="" width="35" height="30"> {{ auth()->user()->name }}</a>
    
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,5 +14,5 @@
           </span></button>
         </form>
       </div>
-    </div>
+    </div> 
   </header>

@@ -24,7 +24,11 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            if (Auth::user()->role == 0)
+            {
+                return redirect('/');
+            }
+            return redirect('/dashboard');
         }
 
         return back()->with('loginError', 'Gagal Login!');

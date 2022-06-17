@@ -13,7 +13,7 @@
                 <form action="/dashboard/infokegiatans/{{ $infokegiatan->slug }}" method="post" class="d-inline">
                 @method('delete')
                 @csrf
-                <button class="btn btn-danger" onclick="return confirm('Data ini akan dihapus?')">
+                <button class="btn btn-danger" onclick="return confirm('Data ini akan dihapus?')
                 <span data-feather="x-circle"></span> Hapus </button>
                 </form>
 

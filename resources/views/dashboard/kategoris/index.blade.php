@@ -31,7 +31,7 @@
 
               <a href="/dashboard/kategoris/{{$kategori->slug }}/edit" class="badge btn-warning"><span data-feather="edit"></span></a>
 
-              <form action="/dashboard/kategoris/{{$kategori->slug }}" method="post" class="d-inline">
+              <form action="{{ route('kategoris.destroy', $kategori) }}" method="post" class="d-inline">
                 @method('delete')
                 @csrf
                 <button class="badge bg-danger border-0" onclick="return confirm('Data ini akan dihapus?')">

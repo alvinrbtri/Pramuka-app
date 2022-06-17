@@ -13,7 +13,7 @@
                 class="text-decoration-none">{{ $materi->kategori->name }} </a></p>
 
                 @if ($materi->image)
-                <div style="max-height: 350px; overflow:hidden">
+                <div style="width: 400px; height: 350px; overflow:hidden" class="mx-auto">
                     <img src="{{ asset('storage/' . $materi->image) }}" alt="{{ 
                         $materi->kategori->name }}" class="img-fluid">
                 </div>

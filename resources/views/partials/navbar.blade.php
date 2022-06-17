@@ -36,7 +36,9 @@
               Halo,{{ auth()->user()->name }}
             </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @can('admin')
                 <li><a class="dropdown-item" href="/dashboard"> <i class="bi bi-layout-text-sidebar-reverse"></i> Dashboard</a></li>
+                @endcan
                 <li><hr class="dropdown-divider"></li>
                 <li>
                   <form action="/logout" method="post">

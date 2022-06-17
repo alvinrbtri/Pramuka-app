@@ -36,7 +36,8 @@ Route::get('/', function () {
         "judul" => "Home",
         "active" => "home"
     ]);
-});
+})->name('home')->middleware(['auth']);
+
 Route::get('/masuk', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/masuk', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -76,11 +77,10 @@ Route::get('/jenislatihans', function() {
 
 Route::get('/dashboard', function() {
     return view('dashboard.index');
-})->middleware('auth');
+})->name('dashboard')->middleware(['auth']);
 
-Route::get('/dashboard/materis/checkSlug', [DashboardMateriController::class, 'checkSlug'])
-->middleware('auth');
-Route::resource('/dashboard/materis', DashboardMateriController::class)->middleware('auth');
+Route::get('/dashboard/materis/checkSlug', [DashboardMateriController::class, 'checkSlug']);
+Route::resource('/dashboard/materis', DashboardMateriController::class);
 Route::resource('/dashboard/kategoris', AdminKategoriController::class);
 
 
@@ -99,7 +99,7 @@ Route::get('/dashboard/tambah_siswas/create', [AuthController::class, 'create'])
 Route::get('/dashboard/tambah_siswas/edit/{user:nis}',[AuthController::class,'edit'])->middleware('auth');
 Route::put('/dashboard/tambah_siswas/update/{user:nis}',[AuthController::class,'update'])->middleware('auth');
 Route::delete('/dashboard/tambah_siswas/delete/{user:nis}',[AuthController::class,'destroy'])->middleware('auth');
-Route::get('/dashboard/tambah_siswas/show',[AuthController::class,'show'])->middleware('auth');
+Route::get('/dashboard/tambah_siswas/show/{nis}',[AuthController::class,'show'])->middleware('auth');
 
 
 // CK EDITOR lARAVEL fILE MANAGER

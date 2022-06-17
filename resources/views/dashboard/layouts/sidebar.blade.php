@@ -53,13 +53,7 @@
         <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/tambahsiswas*') ? 'active' :'' }}" href="/dashboard/tambah_siswas" >
             <span data-feather="pocket"></span>
-            Tambah User
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/tambahadmins*') ? 'active' :'' }}" href="/dashboard/tambah_admins"  >
-            <span data-feather="pocket"></span>
-            Tambah Admin sekolah
+            User
           </a>
         </li>
       </ul>
